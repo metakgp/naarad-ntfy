@@ -582,7 +582,7 @@ const NoNotifications = (props) => {
   return (
     <VerticallyCenteredContainer maxWidth="xs">
       <Typography variant="h5" align="center" sx={{ paddingBottom: 1 }}>
-        <img src={logoOutline} height="64" width="64" alt={t("action_bar_logo_alt")} />
+        <img src={oneLineLogo} width="256" alt={t("action_bar_logo_alt")} />
         <br />
         {t("notifications_none_for_topic_title")}
       </Typography>
@@ -608,7 +608,7 @@ const NoNotificationsWithoutSubscription = (props) => {
   return (
     <VerticallyCenteredContainer maxWidth="xs">
       <Typography variant="h5" align="center" sx={{ paddingBottom: 1 }}>
-        <img src={logoOutline} height="64" width="64" alt={t("action_bar_logo_alt")} />
+        <img src={oneLineLogo} width="256" alt={t("action_bar_logo_alt")} />
         <br />
         {t("notifications_none_for_any_title")}
       </Typography>
