@@ -586,7 +586,7 @@ const NoNotifications = (props) => {
         <br />
         {t("notifications_none_for_topic_title")}
       </Typography>
-      <Paragraph>{t("notifications_none_for_topic_description")}</Paragraph>
+      {/* <Paragraph>{t("notifications_none_for_topic_description")}</Paragraph>
       <Paragraph>
         {t("notifications_example")}:<br />
         <tt>
@@ -596,7 +596,7 @@ const NoNotifications = (props) => {
       </Paragraph>
       <Paragraph>
         <ForMoreDetails />
-      </Paragraph>
+      </Paragraph> */}
     </VerticallyCenteredContainer>
   );
 };
