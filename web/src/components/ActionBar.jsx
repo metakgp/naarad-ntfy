@@ -160,7 +160,7 @@ const ProfileIcon = () => {
         </Button>
       )}
       {!session.exists() && config.enable_signup && (
-        <Button color="inherit" variant="outlined" onClick={() => navigate(routes.signup)} aria-label={t("action_bar_sign_up")}>
+        <Button color="inherit" variant="outlined" onClick={() => window.open("http://naarad-signup.metakgp.org/")} aria-label={t("action_bar_sign_up")}>
           {t("action_bar_sign_up")}
         </Button>
       )}
