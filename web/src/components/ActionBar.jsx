@@ -10,7 +10,7 @@ import { useTranslation } from "react-i18next";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { Logout, Person, Settings } from "@mui/icons-material";
 import session from "../app/Session";
-import logo from "../img/ntfy.svg";
+import twoLineLogo from "../img/metakgp_logo_two_line.svg";
 import subscriptionManager from "../app/SubscriptionManager";
 import routes from "./routes";
 import db from "../app/db";
@@ -77,7 +77,7 @@ const ActionBar = (props) => {
         </IconButton>
         <Box
           component="img"
-          src={"https://miro.medium.com/v2/resize:fit:600/1*O94LHxqfD_JGogOKyuBFgA.jpeg"}
+          src={twoLineLogo}
           alt={t("action_bar_logo_alt")}
           sx={{
             display: { xs: "none", sm: "block" },
@@ -85,7 +85,7 @@ const ActionBar = (props) => {
             height: "28px",
           }}
         />
-        <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
+        <Typography variant="h5" noWrap component="div" sx={{ flexGrow: 1, fontWeight: 'bold' }}>
           {title}
         </Typography>
         {props.selected && <SettingsIcons subscription={props.selected} onUnsubscribe={props.onUnsubscribe} />}
@@ -160,7 +160,7 @@ const ProfileIcon = () => {
         </Button>
       )}
       {!session.exists() && config.enable_signup && (
-        <Button color="inherit" variant="outlined" onClick={() => window.open("https://naarad-signup.metakgp.org/")} aria-label={t("action_bar_sign_up")}>
+        <Button color="inherit" variant="outlined" onClick={() => window.location.assign("https://naarad-signup.metakgp.org/")} aria-label={t("action_bar_sign_up")}>
           {t("action_bar_sign_up")}
         </Button>
       )}
