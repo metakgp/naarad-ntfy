@@ -99,10 +99,10 @@ const MessageBar = (props) => {
         backgroundColor: (theme) => (theme.palette.mode === "light" ? theme.palette.grey[100] : theme.palette.grey[900]),
       }}
     >
-      <IconButton color="inherit" size="large" edge="start" onClick={props.onOpenDialogClick} aria-label={t("message_bar_show_dialog")}>
+      {/* <IconButton color="inherit" size="large" edge="start" onClick={props.onOpenDialogClick} aria-label={t("message_bar_show_dialog")}>
         <KeyboardArrowUpIcon />
-      </IconButton>
-      <TextField
+      </IconButton> */}
+      {/* <TextField
         autoFocus
         margin="dense"
         placeholder={t("message_bar_type_message")}
@@ -120,10 +120,10 @@ const MessageBar = (props) => {
           }
         }}
         onPaste={handlePaste}
-      />
-      <IconButton color="inherit" size="large" edge="end" onClick={handleSendClick} aria-label={t("message_bar_publish")}>
+      /> */}
+      {/* <IconButton color="inherit" size="large" edge="end" onClick={handleSendClick} aria-label={t("message_bar_publish")}>
         <SendIcon />
-      </IconButton>
+      </IconButton> */}
       <Portal>
         <Snackbar
           open={snackOpen}

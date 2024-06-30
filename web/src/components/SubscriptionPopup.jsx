@@ -215,12 +215,12 @@ export const SubscriptionPopup = (props) => {
             {t("action_bar_reservation_delete")}
           </MenuItem>
         )}
-        <MenuItem onClick={handleSendTestMessage}>
+        {/* <MenuItem onClick={handleSendTestMessage}>
           <ListItemIcon>
             <Send fontSize="small" />
           </ListItemIcon>
           {t("action_bar_send_test_notification")}
-        </MenuItem>
+        </MenuItem> */}
         <MenuItem onClick={handleClearAll}>
           <ListItemIcon>
             <ClearAll fontSize="small" />
