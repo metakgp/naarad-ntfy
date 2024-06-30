@@ -89,7 +89,7 @@ const App = () => {
 };
 
 const updateTitle = (newNotificationsCount) => {
-  document.title = newNotificationsCount > 0 ? `(${newNotificationsCount}) ntfy` : "ntfy";
+  document.title = newNotificationsCount > 0 ? `(${newNotificationsCount}) Naarad | metaKGP` : "Naarad | metaKGP";
   window.navigator.setAppBadge?.(newNotificationsCount);
 };
 
