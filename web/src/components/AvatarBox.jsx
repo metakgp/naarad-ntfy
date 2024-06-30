@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Avatar, Box, styled } from "@mui/material";
-import logo from "../img/ntfy-filled.svg";
+import twoLineLogo from "../img/metakgp_logo_two_line.svg"
 
 const AvatarBoxContainer = styled(Box)`
   display: flex;
@@ -15,7 +15,8 @@ const AvatarBoxContainer = styled(Box)`
 `;
 const AvatarBox = (props) => (
   <AvatarBoxContainer>
-    <Avatar sx={{ m: 2, width: 64, height: 64, borderRadius: 3 }} src={logo} variant="rounded" />
+    <img width={80} src={twoLineLogo}/>
+    {/* <Avatar sx={{ m: 2, width: 64, height: 64, borderRadius: 3 }} src={twoLineLogo} variant="rounded" /> */}
     {props.children}
   </AvatarBoxContainer>
 );

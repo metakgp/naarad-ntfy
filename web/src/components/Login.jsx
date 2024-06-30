@@ -103,9 +103,7 @@ const Login = () => {
           {/* This is where the password reset link would go */}
           {config.enable_signup && (
             <div style={{ float: "right" }}>
-              <NavLink to={routes.signup} variant="body1">
-                {t("login_link_signup")}
-              </NavLink>
+                <a href="https://naarad-signup.metakgp.org">Don't have an account? Sign Up!</a>
             </div>
           )}
         </Box>

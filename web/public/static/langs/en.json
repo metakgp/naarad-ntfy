@@ -14,7 +14,7 @@
   "signup_disabled": "Signup is disabled",
   "signup_error_username_taken": "Username {{username}} is already taken",
   "signup_error_creation_limit_reached": "Account creation limit reached",
-  "login_title": "Sign in to your ntfy account",
+  "login_title": "Sign in to your Naarad account",
   "login_form_button_submit": "Sign in",
   "login_link_signup": "Sign up",
   "login_disabled": "Login is disabled",
