@@ -170,18 +170,18 @@ const NavList = (props) => {
           </ListItemIcon>
           <ListItemText primary={t("nav_button_settings")} />
         </ListItemButton>
-        <ListItemButton onClick={() => openUrl("/docs")}>
+        {/* <ListItemButton onClick={() => openUrl("/docs")}>
           <ListItemIcon>
             <ArticleIcon />
           </ListItemIcon>
           <ListItemText primary={t("nav_button_documentation")} />
-        </ListItemButton>
-        <ListItemButton onClick={() => props.onPublishMessageClick()}>
+        </ListItemButton> */}
+        {/* <ListItemButton onClick={() => props.onPublishMessageClick()}>
           <ListItemIcon>
             <Send />
           </ListItemIcon>
           <ListItemText primary={t("nav_button_publish_message")} />
-        </ListItemButton>
+        </ListItemButton> */}
         <ListItemButton onClick={() => setSubscribeDialogOpen(true)}>
           <ListItemIcon>
             <AddIcon />
