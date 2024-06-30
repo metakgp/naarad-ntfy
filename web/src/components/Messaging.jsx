@@ -87,52 +87,53 @@ const MessageBar = (props) => {
   };
 
   return (
-    <Paper
-      elevation={3}
-      sx={{
-        display: "flex",
-        position: "fixed",
-        bottom: 0,
-        right: 0,
-        padding: 2,
-        width: { xs: "100%", sm: `calc(100% - ${Navigation.width}px)` },
-        backgroundColor: (theme) => (theme.palette.mode === "light" ? theme.palette.grey[100] : theme.palette.grey[900]),
-      }}
-    >
-      {/* <IconButton color="inherit" size="large" edge="start" onClick={props.onOpenDialogClick} aria-label={t("message_bar_show_dialog")}>
-        <KeyboardArrowUpIcon />
-      </IconButton> */}
-      {/* <TextField
-        autoFocus
-        margin="dense"
-        placeholder={t("message_bar_type_message")}
-        aria-label={t("message_bar_type_message")}
-        role="textbox"
-        type="text"
-        fullWidth
-        variant="standard"
-        value={props.message}
-        onChange={(ev) => props.onMessageChange(ev.target.value)}
-        onKeyPress={(ev) => {
-          if (ev.key === "Enter") {
-            ev.preventDefault();
-            handleSendClick();
-          }
-        }}
-        onPaste={handlePaste}
-      /> */}
-      {/* <IconButton color="inherit" size="large" edge="end" onClick={handleSendClick} aria-label={t("message_bar_publish")}>
-        <SendIcon />
-      </IconButton> */}
-      <Portal>
-        <Snackbar
-          open={snackOpen}
-          autoHideDuration={3000}
-          onClose={() => setSnackOpen(false)}
-          message={t("message_bar_error_publishing")}
-        />
-      </Portal>
-    </Paper>
+    <></>
+    // <Paper
+    //   elevation={3}
+    //   sx={{
+    //     display: "flex",
+    //     position: "fixed",
+    //     bottom: 0,
+    //     right: 0,
+    //     padding: 2,
+    //     width: { xs: "100%", sm: `calc(100% - ${Navigation.width}px)` },
+    //     backgroundColor: (theme) => (theme.palette.mode === "light" ? theme.palette.grey[100] : theme.palette.grey[900]),
+    //   }}
+    // >
+    //   <IconButton color="inherit" size="large" edge="start" onClick={props.onOpenDialogClick} aria-label={t("message_bar_show_dialog")}>
+    //     <KeyboardArrowUpIcon />
+    //   </IconButton>
+    //   <TextField
+    //     autoFocus
+    //     margin="dense"
+    //     placeholder={t("message_bar_type_message")}
+    //     aria-label={t("message_bar_type_message")}
+    //     role="textbox"
+    //     type="text"
+    //     fullWidth
+    //     variant="standard"
+    //     value={props.message}
+    //     onChange={(ev) => props.onMessageChange(ev.target.value)}
+    //     onKeyPress={(ev) => {
+    //       if (ev.key === "Enter") {
+    //         ev.preventDefault();
+    //         handleSendClick();
+    //       }
+    //     }}
+    //     onPaste={handlePaste}
+    //   />
+    //   <IconButton color="inherit" size="large" edge="end" onClick={handleSendClick} aria-label={t("message_bar_publish")}>
+    //     <SendIcon />
+    //   </IconButton>
+    //   <Portal>
+    //     <Snackbar
+    //       open={snackOpen}
+    //       autoHideDuration={3000}
+    //       onClose={() => setSnackOpen(false)}
+    //       message={t("message_bar_error_publishing")}
+    //     />
+    //   </Portal>
+    // </Paper>
   );
 };
 
