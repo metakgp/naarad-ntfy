@@ -27,7 +27,7 @@ const ActionBar = (props) => {
   const location = useLocation();
   const isLaunchedPWA = useIsLaunchedPWA();
 
-  let title = "ntfy";
+  let title = "Naarad";
   if (props.selected) {
     title = topicDisplayName(props.selected);
   } else if (location.pathname === routes.settings) {
@@ -77,7 +77,7 @@ const ActionBar = (props) => {
         </IconButton>
         <Box
           component="img"
-          src={logo}
+          src={"https://miro.medium.com/v2/resize:fit:600/1*O94LHxqfD_JGogOKyuBFgA.jpeg"}
           alt={t("action_bar_logo_alt")}
           sx={{
             display: { xs: "none", sm: "block" },
@@ -160,7 +160,7 @@ const ProfileIcon = () => {
         </Button>
       )}
       {!session.exists() && config.enable_signup && (
-        <Button color="inherit" variant="outlined" onClick={() => window.open("http://naarad-signup.metakgp.org/")} aria-label={t("action_bar_sign_up")}>
+        <Button color="inherit" variant="outlined" onClick={() => window.open("https://naarad-signup.metakgp.org/")} aria-label={t("action_bar_sign_up")}>
           {t("action_bar_sign_up")}
         </Button>
       )}
