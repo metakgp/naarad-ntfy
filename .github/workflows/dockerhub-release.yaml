@@ -30,6 +30,14 @@ jobs:
                   username: ${{ secrets.DOCKERHUB_USERNAME }}
                   password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
+            - name: Cache Docker layers naarad-ntfy
+              uses: actions/cache@v3
+              with:
+                  path: /tmp/.buildx-cache-naarad-ntfy
+                  key: ${{ runner.os }}-buildx-naarad-ntfy-${{ github.sha }}
+                  restore-keys: |
+                      ${{ runner.os }}-buildx-naarad-ntfy-
+
             - name: Build & Push naarad-ntfy
               uses: docker/build-push-action@v5
               with:
@@ -37,3 +45,10 @@ jobs:
                   file: Dockerfile-build
                   push: true
                   tags: ${{ secrets.DOCKERHUB_USERNAME }}/naarad-ntfy:latest
+                  cache-from: type=local,src=/tmp/.buildx-cache-naarad-ntfy
+                  cache-to: type=local,dest=/tmp/.buildx-cache-naarad-ntfy-new,mode=max
+
+            - name: Move naarad-ntfy cache
+              run: |
+                  rm -rf /tmp/.buildx-cache-naarad-ntfy
+                  mv /tmp/.buildx-cache-naarad-ntfy-new /tmp/.buildx-cache-naarad-ntfy
