@@ -86,36 +86,36 @@ const PublishDialog = (props) => {
   const open = !!props.openMode;
   const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
-  useEffect(() => {
-    window.addEventListener("dragenter", () => {
-      props.onDragEnter();
-      setDropZone(true);
-    });
-  }, []);
+//   useEffect(() => {
+//     window.addEventListener("dragenter", () => {
+//       props.onDragEnter();
+//       setDropZone(true);
+//     });
+//   }, []);
 
-  useEffect(() => {
-    setBaseUrl(props.baseUrl);
-    setTopic(props.topic);
-    setShowTopicUrl(!props.baseUrl || !props.topic);
-    setMessageFocused(!!props.topic); // Focus message only if topic is set
-  }, [props.baseUrl, props.topic]);
+//   useEffect(() => {
+//     setBaseUrl(props.baseUrl);
+//     setTopic(props.topic);
+//     setShowTopicUrl(!props.baseUrl || !props.topic);
+//     setMessageFocused(!!props.topic); // Focus message only if topic is set
+//   }, [props.baseUrl, props.topic]);
 
-  useEffect(() => {
-    const valid = validUrl(baseUrl) && validTopic(topic) && !attachFileError;
-    setSendButtonEnabled(valid);
-  }, [baseUrl, topic, attachFileError]);
+//   useEffect(() => {
+//     const valid = validUrl(baseUrl) && validTopic(topic) && !attachFileError;
+//     setSendButtonEnabled(valid);
+//   }, [baseUrl, topic, attachFileError]);
 
-  useEffect(() => {
-    setMessage(props.message);
-  }, [props.message]);
+//   useEffect(() => {
+//     setMessage(props.message);
+//   }, [props.message]);
 
-  const updateBaseUrl = (newVal) => {
-    if (validUrl(newVal)) {
-      setBaseUrl(newVal.replace(/\/$/, "")); // strip traililng slash after https?://
-    } else {
-      setBaseUrl(newVal);
-    }
-  };
+//   const updateBaseUrl = (newVal) => {
+//     if (validUrl(newVal)) {
+//       setBaseUrl(newVal.replace(/\/$/, "")); // strip traililng slash after https?://
+//     } else {
+//       setBaseUrl(newVal);
+//     }
+//   };
 
   const handleSubmit = async () => {
     const url = new URL(topicUrl(baseUrl, topic));
