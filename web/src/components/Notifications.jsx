@@ -34,7 +34,7 @@ import priority1 from "../img/priority-1.svg";
 import priority2 from "../img/priority-2.svg";
 import priority4 from "../img/priority-4.svg";
 import priority5 from "../img/priority-5.svg";
-import logoOutline from "../img/ntfy-outline.svg";
+import oneLineLogo from "../img/metakgp_logo_one_line.svg";
 import AttachmentIcon from "./AttachmentIcon";
 import { useAutoSubscribe } from "./hooks";
 
@@ -632,18 +632,18 @@ const NoSubscriptions = () => {
   return (
     <VerticallyCenteredContainer maxWidth="xs">
       <Typography variant="h5" align="center" sx={{ paddingBottom: 1 }}>
-        <img src={logoOutline} height="64" width="64" alt={t("action_bar_logo_alt")} />
+        <img src={oneLineLogo} width="256" alt={t("action_bar_logo_alt")} />
         <br />
         {t("notifications_no_subscriptions_title")}
       </Typography>
-      <Paragraph>
+      {/* <Paragraph>
         {t("notifications_no_subscriptions_description", {
           linktext: t("nav_button_subscribe"),
         })}
-      </Paragraph>
-      <Paragraph>
+      </Paragraph> */}
+      {/* <Paragraph>
         <ForMoreDetails />
-      </Paragraph>
+      </Paragraph> */}
     </VerticallyCenteredContainer>
   );
 };
