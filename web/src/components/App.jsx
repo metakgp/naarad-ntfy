@@ -133,7 +133,7 @@ const Layout = () => {
           }}
         />
       </Main>
-      <Messaging selected={selected} dialogOpenMode={sendDialogOpenMode} onDialogOpenModeChange={setSendDialogOpenMode} />
+      {/* <Messaging selected={selected} dialogOpenMode={sendDialogOpenMode} onDialogOpenModeChange={setSendDialogOpenMode} /> */}
     </Box>
   );
 };
