@@ -250,11 +250,11 @@ const NotificationItem = (props) => {
   return (
     <Card sx={{ padding: 1 }} role="listitem" aria-label={t("notifications_list_item")}>
       <CardContent>
-        <Tooltip title={t("notifications_delete")} enterDelay={500}>
+        {/* <Tooltip title={t("notifications_delete")} enterDelay={500}>
           <IconButton onClick={handleDelete} sx={{ float: "right", marginRight: -1, marginTop: -1 }} aria-label={t("notifications_delete")}>
             <CloseIcon />
           </IconButton>
-        </Tooltip>
+        </Tooltip> */}
         {notification.new === 1 && (
           <Tooltip title={t("notifications_mark_read")} enterDelay={500}>
             <IconButton
@@ -612,7 +612,7 @@ const NoNotificationsWithoutSubscription = (props) => {
         <br />
         {t("notifications_none_for_any_title")}
       </Typography>
-      <Paragraph>{t("notifications_none_for_any_description")}</Paragraph>
+      {/* <Paragraph>{t("notifications_none_for_any_description")}</Paragraph>
       <Paragraph>
         {t("notifications_example")}:<br />
         <tt>
@@ -622,7 +622,7 @@ const NoNotificationsWithoutSubscription = (props) => {
       </Paragraph>
       <Paragraph>
         <ForMoreDetails />
-      </Paragraph>
+      </Paragraph> */}
     </VerticallyCenteredContainer>
   );
 };
