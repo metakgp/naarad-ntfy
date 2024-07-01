@@ -52,3 +52,13 @@ jobs:
               run: |
                   rm -rf /tmp/.buildx-cache-naarad-ntfy
                   mv /tmp/.buildx-cache-naarad-ntfy-new /tmp/.buildx-cache-naarad-ntfy
+
+            - name: Trigger Deployment of Naarad and Naarad API on Server
+              env:
+                  GH_PAT: ${{ secrets.GH_PAT }}
+              run: |
+                  curl -k -X POST \
+                      -H "Authorization: token $GH_PAT" \
+                      -H "Accept: application/vnd.github.v3+json" \
+                      https://api.github.com/repos/metakgp/naarad/dispatches \
+                      -d '{"event_type":"trigger_naarad_deployment"}'
