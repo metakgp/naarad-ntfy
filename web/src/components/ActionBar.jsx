@@ -155,7 +155,7 @@ const ProfileIcon = () => {
         </IconButton>
       )}
       {!session.exists() && config.enable_login && (
-        <Button color="inherit" variant="text" onClick={() => navigate(routes.login)} sx={{ m: 1 }} aria-label={t("action_bar_sign_in")}>
+        <Button color="inherit" variant="text" onClick={() => window.location.assign("https://naarad.metakgp.org/login")} sx={{ m: 1 }} aria-label={t("action_bar_sign_in")}>
           {t("action_bar_sign_in")}
         </Button>
       )}
