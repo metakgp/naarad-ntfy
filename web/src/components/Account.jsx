@@ -37,7 +37,7 @@ import {
 } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import { Trans, useTranslation } from "react-i18next";
-import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+// import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import humanizeDuration from "humanize-duration";
 import CelebrationIcon from "@mui/icons-material/Celebration";
@@ -48,7 +48,7 @@ import routes from "./routes";
 import { formatBytes, formatShortDate, formatShortDateTime, openUrl } from "../app/utils";
 import accountApi, { LimitBasis, Role, SubscriptionInterval, SubscriptionStatus } from "../app/AccountApi";
 import { Pref, PrefGroup } from "./Pref";
-import db from "../app/db";
+// import db from "../app/db";
 import UpgradeDialog from "./UpgradeDialog";
 import { AccountContext } from "./App";
 import DialogFooter from "./DialogFooter";
@@ -68,7 +68,7 @@ const Account = () => {
         <Basics />
         <Stats />
         <Tokens />
-        <Delete />
+        {/* <Delete /> */}
       </Stack>
     </Container>
   );
@@ -1030,102 +1030,102 @@ const TokenDeleteDialog = (props) => {
   );
 };
 
-const Delete = () => {
-  const { t } = useTranslation();
-  return (
-    <Card sx={{ p: 3 }} aria-label={t("account_delete_title")}>
-      <Typography variant="h5" sx={{ marginBottom: 2 }}>
-        {t("account_delete_title")}
-      </Typography>
-      <PrefGroup>
-        <DeleteAccount />
-      </PrefGroup>
-    </Card>
-  );
-};
+// const Delete = () => {
+//   const { t } = useTranslation();
+//   return (
+//     <Card sx={{ p: 3 }} aria-label={t("account_delete_title")}>
+//       <Typography variant="h5" sx={{ marginBottom: 2 }}>
+//         {t("account_delete_title")}
+//       </Typography>
+//       <PrefGroup>
+//         <DeleteAccount />
+//       </PrefGroup>
+//     </Card>
+//   );
+// };
 
-const DeleteAccount = () => {
-  const { t } = useTranslation();
-  const [dialogKey, setDialogKey] = useState(0);
-  const [dialogOpen, setDialogOpen] = useState(false);
+// const DeleteAccount = () => {
+//   const { t } = useTranslation();
+//   const [dialogKey, setDialogKey] = useState(0);
+//   const [dialogOpen, setDialogOpen] = useState(false);
 
-  const handleDialogOpen = () => {
-    setDialogKey((prev) => prev + 1);
-    setDialogOpen(true);
-  };
+//   const handleDialogOpen = () => {
+//     setDialogKey((prev) => prev + 1);
+//     setDialogOpen(true);
+//   };
 
-  const handleDialogClose = () => {
-    setDialogOpen(false);
-  };
+//   const handleDialogClose = () => {
+//     setDialogOpen(false);
+//   };
 
-  return (
-    <Pref title={t("account_delete_title")} description={t("account_delete_description")}>
-      <div>
-        <Button fullWidth={false} variant="outlined" color="error" startIcon={<DeleteOutlineIcon />} onClick={handleDialogOpen}>
-          {t("account_delete_title")}
-        </Button>
-      </div>
-      <DeleteAccountDialog key={`deleteAccountDialog${dialogKey}`} open={dialogOpen} onClose={handleDialogClose} />
-    </Pref>
-  );
-};
+//   return (
+//     <Pref title={t("account_delete_title")} description={t("account_delete_description")}>
+//       <div>
+//         <Button fullWidth={false} variant="outlined" color="error" startIcon={<DeleteOutlineIcon />} onClick={handleDialogOpen}>
+//           {t("account_delete_title")}
+//         </Button>
+//       </div>
+//       <DeleteAccountDialog key={`deleteAccountDialog${dialogKey}`} open={dialogOpen} onClose={handleDialogClose} />
+//     </Pref>
+//   );
+// };
 
-const DeleteAccountDialog = (props) => {
-  const theme = useTheme();
-  const { t } = useTranslation();
-  const { account } = useContext(AccountContext);
-  const [error, setError] = useState("");
-  const [password, setPassword] = useState("");
-  const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
+// const DeleteAccountDialog = (props) => {
+//   const theme = useTheme();
+//   const { t } = useTranslation();
+//   const { account } = useContext(AccountContext);
+//   const [error, setError] = useState("");
+//   const [password, setPassword] = useState("");
+//   const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const handleSubmit = async () => {
-    try {
-      await accountApi.delete(password);
-      await db().delete();
-      console.debug(`[Account] Account deleted`);
-      await session.resetAndRedirect(routes.app);
-    } catch (e) {
-      console.log(`[Account] Error deleting account`, e);
-      if (e instanceof IncorrectPasswordError) {
-        setError(t("account_basics_password_dialog_current_password_incorrect"));
-      } else if (e instanceof UnauthorizedError) {
-        await session.resetAndRedirect(routes.login);
-      } else {
-        setError(e.message);
-      }
-    }
-  };
+//   const handleSubmit = async () => {
+//     try {
+//       await accountApi.delete(password);
+//       await db().delete();
+//       console.debug(`[Account] Account deleted`);
+//       await session.resetAndRedirect(routes.app);
+//     } catch (e) {
+//       console.log(`[Account] Error deleting account`, e);
+//       if (e instanceof IncorrectPasswordError) {
+//         setError(t("account_basics_password_dialog_current_password_incorrect"));
+//       } else if (e instanceof UnauthorizedError) {
+//         await session.resetAndRedirect(routes.login);
+//       } else {
+//         setError(e.message);
+//       }
+//     }
+//   };
 
-  return (
-    <Dialog open={props.open} onClose={props.onClose} fullScreen={fullScreen}>
-      <DialogTitle>{t("account_delete_title")}</DialogTitle>
-      <DialogContent>
-        <Typography variant="body1">{t("account_delete_dialog_description")}</Typography>
-        <TextField
-          margin="dense"
-          id="account-delete-confirm"
-          label={t("account_delete_dialog_label")}
-          aria-label={t("account_delete_dialog_label")}
-          type="password"
-          value={password}
-          onChange={(ev) => setPassword(ev.target.value)}
-          fullWidth
-          variant="standard"
-        />
-        {account?.billing?.subscription && (
-          <Alert severity="warning" sx={{ mt: 1 }}>
-            {t("account_delete_dialog_billing_warning")}
-          </Alert>
-        )}
-      </DialogContent>
-      <DialogFooter status={error}>
-        <Button onClick={props.onClose}>{t("account_delete_dialog_button_cancel")}</Button>
-        <Button onClick={handleSubmit} color="error" disabled={password.length === 0}>
-          {t("account_delete_dialog_button_submit")}
-        </Button>
-      </DialogFooter>
-    </Dialog>
-  );
-};
+//   return (
+//     <Dialog open={props.open} onClose={props.onClose} fullScreen={fullScreen}>
+//       <DialogTitle>{t("account_delete_title")}</DialogTitle>
+//       <DialogContent>
+//         <Typography variant="body1">{t("account_delete_dialog_description")}</Typography>
+//         <TextField
+//           margin="dense"
+//           id="account-delete-confirm"
+//           label={t("account_delete_dialog_label")}
+//           aria-label={t("account_delete_dialog_label")}
+//           type="password"
+//           value={password}
+//           onChange={(ev) => setPassword(ev.target.value)}
+//           fullWidth
+//           variant="standard"
+//         />
+//         {account?.billing?.subscription && (
+//           <Alert severity="warning" sx={{ mt: 1 }}>
+//             {t("account_delete_dialog_billing_warning")}
+//           </Alert>
+//         )}
+//       </DialogContent>
+//       <DialogFooter status={error}>
+//         <Button onClick={props.onClose}>{t("account_delete_dialog_button_cancel")}</Button>
+//         <Button onClick={handleSubmit} color="error" disabled={password.length === 0}>
+//           {t("account_delete_dialog_button_submit")}
+//         </Button>
+//       </DialogFooter>
+//     </Dialog>
+//   );
+// };
 
 export default Account;
