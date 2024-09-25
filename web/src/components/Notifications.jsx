@@ -634,7 +634,11 @@ const NoSubscriptions = () => {
       <Typography variant="h5" align="center" sx={{ paddingBottom: 1 }}>
         <img src={oneLineLogo} width="256" alt={t("action_bar_logo_alt")} />
         <br />
-        {t("notifications_no_subscriptions_title")}
+        {t("notifications_no_subscriptions_title") + " To subscribe, follow the "}
+        <Link href="/https://github.com/metakgp/naarad/blob/main/SUBSCRIPTION_INSTRUCTION.md#subscribing-to-mftp" color="primary">
+            {"naarad subscription guide"}
+        </Link>
+        {"."}
       </Typography>
       {/* <Paragraph>
         {t("notifications_no_subscriptions_description", {
