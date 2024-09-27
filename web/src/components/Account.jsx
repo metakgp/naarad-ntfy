@@ -83,7 +83,7 @@ const Basics = () => {
       </Typography>
       <PrefGroup>
         <Username />
-        <ChangePassword />
+        {/* <ChangePassword /> */}
         <PhoneNumbers />
         <AccountType />
       </PrefGroup>
