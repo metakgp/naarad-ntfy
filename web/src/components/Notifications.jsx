@@ -635,7 +635,7 @@ const NoSubscriptions = () => {
         <img src={oneLineLogo} width="256" alt={t("action_bar_logo_alt")} />
         <br />
         {t("notifications_no_subscriptions_title") + " To subscribe, follow the "}
-        <Link href="/https://github.com/metakgp/naarad/blob/main/SUBSCRIPTION_INSTRUCTION.md#subscribing-to-mftp" color="primary">
+        <Link href="https://github.com/metakgp/naarad/blob/main/SUBSCRIPTION_INSTRUCTION.md#subscribing-to-mftp" color="primary">
             {"naarad subscription guide"}
         </Link>
         {"."}
